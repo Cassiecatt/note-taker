@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const path = require('path')
 const db = require('./db/db.json');
 const fs = require('fs');
+const { v4: uuidv4 } = require('uuid'); // giving a unique ID to each note
 
 //Empty notes array to push into to
 let notes = [];
@@ -31,8 +32,9 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
     //push new note into db.json
     let newNote = req.body;
+    newNote.id = uuidv4();
+    // console.log(uuidv4())
     db.push(newNote);
-
     //Write to db file
     fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(db));
     return res.json(newNote);
@@ -40,9 +42,7 @@ app.post('/api/notes', (req, res) => {
 
 //HTML post route
 app.post('/notes', (req, res) => {
-
     res.send(req.body)
-
 });
 
 //port listener
