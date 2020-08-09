@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Cassiecatt/note-taker#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "uuid": "^8.3.0"
   },
   "engines": {

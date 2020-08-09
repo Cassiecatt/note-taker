@@ -37,7 +37,8 @@ app.delete('/api/notes/:id', (req, res) => {
     const deleted = db.find(note => note.id === id);
     if (deleted) {
         db = db.filter(note => note.id !== id)
-        res.status(200).json(deleted);
+        fs.writeFileSync(path.join(__dirname, './Develop/db/db.json'), JSON.stringify(db));  //rewrite file
+        return res.status(200).json(deleted);
     } else {
         res.status(404).json({message: "Note doesn't exist"})
     }
