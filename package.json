@@ -1,17 +1,26 @@
 {
-  "name": "Develop",
+  "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "An application called Note Taker than can be used to write and save notes. The Application contains an Express.js backend and saves/retrieves note data from a JSON file.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cassiecatt/note-taker.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cassiecatt/note-taker/issues"
+  },
+  "homepage": "https://github.com/Cassiecatt/note-taker#readme",
   "dependencies": {
     "express": "^4.17.1",
     "uuid": "^8.3.0"
+  },
+  "engines": {
+    "node": "12.11.1"
   }
 }
