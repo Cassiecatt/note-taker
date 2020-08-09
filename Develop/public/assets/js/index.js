@@ -8,6 +8,7 @@ var $noteList = $(".list-container .list-group");
 var activeNote = {};
 
 // A function for getting all notes from the db
+//Note - similar to fetch(), getting URL through get method
 var getNotes = function() {
   return $.ajax({
     url: "/api/notes",

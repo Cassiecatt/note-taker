@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
-const path = require('path')
+const path = require('path') // Getting path in NODE
 let db = require('./db/db.json'); //Array of Json objects
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid'); // giving a unique ID to each note
@@ -34,7 +34,7 @@ app.delete('/api/notes/:id', (req, res) => {
     const deleted = db.find(note => note.id === id);
     if (deleted) {
         db = db.filter(note => note.id !== id)
-        res.status(200).json(deleted);
+       res.status(200).json(deleted);
     } else {
         res.status(404).json({message: "Note doesn't exist"})
     }
