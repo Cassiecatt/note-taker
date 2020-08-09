@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const path = require('path')
-let db = require('./db/db.json'); //Array of Objects
+let db = require('./Develop/db/db.json'); //Array of Objects
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid'); // giving a unique ID to each note
 const { json } = require('express');
@@ -11,14 +11,14 @@ const { json } = require('express');
 //parse incoming string, array or JSON data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('./public'));
+app.use(express.static('./Develop/public'));
 
 //HTML Get Routes
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/notes.html'));
+    res.sendFile(path.join(__dirname, './Develop/public/notes.html'));
 });
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'));
+    res.sendFile(path.join(__dirname, './Develop/public/index.html'));
   });
 
 // app.get('/notes', (req, res) => {
@@ -49,7 +49,7 @@ app.post('/api/notes', (req, res) => {
     newNote.id = uuidv4(); // giving new note unique id
     db.push(newNote); // push new note into db.json
    
-    fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(db));  //Write to db file
+    fs.writeFileSync(path.join(__dirname, './Develop/db/db.json'), JSON.stringify(db));  //Write to db file
     return res.json(newNote);
 });
 
