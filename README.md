@@ -7,4 +7,4 @@ An application called Note Taker than can be used to write and save notes. The A
 [a link]()
 
 ## Screenshot
-![Screenshot of final result from application](https://cassiecatt.github.io/readme-generator/assets/readme-result.png)"
+![Screenshot of final result from application]()"
