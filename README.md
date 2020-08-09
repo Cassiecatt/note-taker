@@ -7,4 +7,4 @@ Note Taker is an application that can be used to write and save notes. The Appli
 [a link]()
 
 ## Screenshot
-![Screenshot of final result from application](https://cassiecatt.github.io/note-taker/Develop/public/assets/image/project-screenhot.png)
+![Screenshot of final result from application](https://cassiecatt.github.io/note-taker/Develop/public/assets/image/project-screenshot.png)
