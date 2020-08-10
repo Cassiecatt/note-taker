@@ -62,3 +62,22 @@ app.listen(PORT, () => {
 });
 
 
+// app.put('/api/notes/:id', (req, res) => {
+//     const { id } = req.params;
+
+//     var jsonData = fs.readFileSync("./Develop/db/db.json");
+//     var data = JSON.parse(jsonData);
+
+//     console.log("json data", jsonData);
+//     console.log("data", data);
+
+//     for(i = 0; i < db.length; i++) {
+//         if (id === db[i].id) {
+//             db[id]["title"] = req.body.title;
+//             db[id]["text"] = req.body.text;
+            
+//             fs.writeFileSync(path.join(__dirname, './Develop/db/db.json'), JSON.stringify(db));
+//             return res.json(data);
+//         }
+//     }
+//       });
