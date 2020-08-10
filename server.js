@@ -6,6 +6,7 @@ let db = require('./Develop/db/db.json'); //Array of Objects
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid'); // giving a unique ID to each note
 const { json } = require('express');
+const { notDeepEqual } = require('assert');
 
 
 //parse incoming string, array or JSON data
@@ -21,14 +22,36 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './Develop/public/index.html'));
   });
 
-// app.get('/notes', (req, res) => {
-//     res.sendFile(path.join(__dirname, './public/notes.html'));
-// });
-
-//API Get Route
+//API Get Routes
 app.get('/api/notes', (req, res) => {
     return res.json(db);
 })
+
+app.get("/api/notes/:id", (req, res) => {
+    const { id } = req.params;
+    const noteId = db.find(note => note.id === id);
+
+    if(noteId) {
+        res.status(200).json(noteId)
+    } else {
+        res.status(404).json("Note does not exist")
+    }
+});
+
+//API Put Route
+// app.put("/notes/:id", (req, res) => {
+//     const { id } = req.params;
+//     const changes = req.body;
+
+//     const index = db.findIndex(note => note.id === id);
+
+//     if (index !== -1) {
+//         db[index] = changes;
+//         res.status(200).json(db[index]);
+//     } else {
+//         res.status(404).json("Note cannot be found")
+//     }
+// })
 
 // API delete Route *Bonus*
 app.delete('/api/notes/:id', (req, res) => {
